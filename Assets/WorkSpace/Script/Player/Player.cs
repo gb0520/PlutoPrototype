@@ -46,7 +46,7 @@ namespace Pluto
         private float hitTime = 0.8f;
         private WaitForSeconds wfs_hit;
         private bool isInvincible;
-        private float invincibleTime = 0.075f;
+        private float invincibleTime = 0.2f;
         private WaitForSeconds wfs_invincible;
 
         private float hitDmg = 10;
@@ -217,12 +217,13 @@ namespace Pluto
         [PunRPC]
         private void Die()
         {
-            UserInputSender.instance.PlayerDisconnect();
             Destroy(transform.parent.gameObject);
         }
 
         public void OnDie()
         {
+            if (isMine)
+                UserInputSender.instance.PlayerDisconnect();
             photonView.RPC("Die", RpcTarget.AllBuffered);
         }
 

@@ -48,9 +48,9 @@ namespace Pluto.Network
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) &&
-                PhotonNetwork.IsConnected)
-                PhotonNetwork.Disconnect();
+            //if (Input.GetKeyDown(KeyCode.Escape) &&
+            //    PhotonNetwork.IsConnected)
+            //    PhotonNetwork.Disconnect();
         }
     }
 }
